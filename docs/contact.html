@@ -42,7 +42,8 @@
 
 			<!-- Mobile menu button -->
 			<button class="md:hidden focus:outline-none" id="menuToggle">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+					stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
 				</svg>
 			</button>
@@ -109,15 +110,17 @@
 	<!-- Hero Banner Section -->
 	<section class="relative pt-24">
 		<!-- Hero Content -->
-		<div class="h-full flex flex-col items-center relative z-1 pt-16">
+		<div class="h-full flex flex-col items-center relative z-1">
 			<div
-				class="container w-full h-full lg:w-[1001px] mx-auto text-black flex flex-col justify-center items-center text-center">
-				<h1 class="text-6xl font-bold leading-tight">Hãy cho phép chúng tôi phục vụ bạn tốt hơn!</h1>
-				<p class="text-lg mt-6">Hãy để chúng tôi đồng hành cùng quý vị, chúng tôi tin tưởng mang lại cho
+				class="container w-full h-full lg:w-[1001px] mx-auto text-black flex flex-col justify-center items-center text-center px-4">
+				<h1 class="text-4xl md:text-6xl font-bold leading-tight">Hãy cho phép chúng tôi phục vụ bạn tốt hơn!
+				</h1>
+				<div class="text-base lg:text-lg mt-6">Hãy để chúng tôi đồng hành cùng quý vị, chúng tôi tin tưởng mang
+					lại cho
 					quý khách những căn hộ tốt, đẹp nhất, giá rẻ nhất cùng chất lượng dịch vụ chu đáo để làm hài lòng
-					quý vị!</p>
+					quý vị!</div>
 			</div>
-			<div class="container mx-auto px-4 w-full mt-16">
+			<div class="container mx-auto px-4 w-full mt-10 lg:mt-16">
 				<div
 					class="flex flex-col lg:flex-row gap-8 bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200">
 					<!-- Left Side - Form -->
@@ -130,7 +133,7 @@
 						</p>
 
 						<form class="space-y-4">
-							<div class="flex flex-row gap-4">
+							<div class="flex flex-col md:flex-row gap-4">
 								<input type="text" placeholder="Your name"
 									class="w-full px-4 py-3 bg-[#eff6ff] border border-gray-200 rounded-md text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600">
 
@@ -210,22 +213,23 @@
 	</section>
 
 	<!-- News Section -->
-	<section class="py-16 bg-gray-50">
+	<section class="py-10 lg:py-16 bg-gray-50">
 		<div class="container mx-auto px-4">
-			<h2 class="text-4xl font-bold mb-16">Tin tức</h2>
+			<h2 class="text-center md:text-start text-4xl font-bold mb-10 lg:mb-16">Tin tức</h2>
 
-			<div class="flex flex-col xl:flex-row gap-6 w-full">
+			<div class="flex flex-col xl:flex-row gap-5 w-full">
 				<!-- Featured News Article -->
 				<div
-					class="w-full h-[400px] md:h-[500px] xl:h-[600px] bg-white rounded-lg overflow-hidden shadow-sm group hover:cursor-pointer">
+					class="w-full h-[300px] sm:h-[400px] md:h-[600px] bg-white rounded-lg overflow-hidden shadow-sm group hover:cursor-pointer">
 					<div class="relative h-full">
 						<img src="./public/images/villa-img.jpg" alt="Luxury Villa Complex"
 							class="w-full h-full object-center object-cover group-hover:scale-110 transition-all duration-300">
 						<div
 							class="absolute bottom-0 left-0 right-0 p-4 sm:p-8 xl:p-12 bg-gradient-to-t from-black via-black to-transparent">
-							<h3 class="text-2xl sm:text-3xl xl:text-4xl font-bold text-white mb-2 line-clamp-2">Luxury
-								Villa Complex</h3>
-							<div class="text-white my-2 text-sm sm:text-base line-clamp-2 sm:line-clamp-3">
+							<h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Luxury
+								Villa Complex
+							</h3>
+							<div class="text-white my-2 text-sm md:text-base line-clamp-3 md:line-clamp-4">
 								It is a long established fact that a reader will be distracted by the readable content
 								of a page
 								when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
@@ -235,17 +239,17 @@
 								readable English.
 							</div>
 							<div class="flex items-center justify-start mt-2 sm:mt-4">
-								<span class="text-white text-xs sm:text-sm">01/01/1970</span>
+								<span class="text-white text-sm md:text-base">01/01/1970</span>
 								<span class="text-white px-[10px]">-</span>
-								<a href="#" class="text-white flex items-center group gap-2 relative">
-									<span class="text-white text-xs sm:text-sm">Xem tiếp</span>
-									<svg xmlns="http://www.w3.org/2000/svg"
-										class="h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" fill="none"
-										viewBox="0 0 24 24" stroke="currentColor">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-											d="M14 5l7 7m0 0l-7 7m7-7H3" />
+								<a href="#" class="text-white flex items-center text-sm md:text-base group gap-2">
+									<span class="border-b border-white">Xem tiếp</span>
+									<svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+										class="group-hover:translate-x-1 transition-transform">
+										<path
+											d="M7.58943 1.54262L8.3822 0.729248C8.71788 0.384847 9.26068 0.384847 9.59278 0.729248L16.5349 7.84809C16.8705 8.1925 16.8705 8.7494 16.5349 9.09014L9.59278 16.2126C9.2571 16.557 8.71431 16.557 8.3822 16.2126L7.58943 15.3993C7.25019 15.0512 7.25733 14.4833 7.60372 14.1426L11.9068 9.93649H1.64367C1.16872 9.93649 0.786621 9.54445 0.786621 9.05716V7.88473C0.786621 7.39744 1.16872 7.00541 1.64367 7.00541H11.9068L7.60372 2.79932C7.25376 2.45858 7.24661 1.89069 7.58943 1.54262Z"
+											fill="white" />
 									</svg>
-									<div class="absolute -bottom-2 left-0 w-full h-full border-b border-white"></div>
 								</a>
 							</div>
 						</div>
@@ -253,79 +257,85 @@
 				</div>
 
 				<!-- News List -->
-				<div class="flex flex-col gap-4 w-full">
+				<div class="flex flex-col gap-5 w-full">
 					<!-- News Item 1 -->
-					<div class="flex flex-col sm:flex-row gap-4 w-full group hover:cursor-pointer">
+					<div class="flex flex-col sm:flex-row gap-4 group hover:cursor-pointer w-full">
 						<div
-							class="w-full sm:max-w-[326px] sm:min-w-[200px] md:min-w-[250px] lg:min-w-[326px] h-[190px] object-cover rounded-lg object-center overflow-hidden">
+							class="w-full h-[300px] sm:h-[400px] md:w-[326px] md:h-[186px] object-cover rounded-lg object-center overflow-hidden">
 							<img src="./public/images/villa-img.jpg" alt="Sustainable Homes"
 								class="w-full h-full object-cover rounded-lg object-center group-hover:scale-110 transition-all duration-300">
 						</div>
-						<div class="flex flex-col w-full justify-between py-2 sm:py-4">
-							<h3 class="font-bold text-base sm:text-lg line-clamp-2">Sustainable Homes Sustainable Homes
+						<div class="flex flex-col w-full md:w-[calc(100%-326px)] justify-between pt-2 sm:pt-4">
+							<h3 class="font-bold text-lg md:text-xl line-clamp-2">Sustainable Homes Sustainable Homes
 								Sustainable
 								Homes Homes Homes</h3>
-							<div class="text-gray-600 text-xs sm:text-sm my-2 line-clamp-2 sm:line-clamp-3">The rise of
+							<div class="text-gray-600 text-base my-2 line-clamp-3">The rise of
 								eco-friendly
 								luxury properties. The rise of
 								eco-friendly luxury properties. The rise of eco-friendly luxury properties. The rise of
 								eco-friendly luxury properties. The rise of eco-friendly luxury properties.</div>
-							<a href="#" class="text-blue-600 flex items-center text-xs sm:text-sm group gap-1">
+							<a href="#" class="text-blue-600 flex items-center text-base group gap-2">
 								<span class="border-b border-blue-600">Xem tiếp</span>
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" fill="none"
-									viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+								<svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									class="group-hover:translate-x-1 transition-transform">
+									<path
+										d="M7.58943 1.54262L8.3822 0.729248C8.71788 0.384847 9.26068 0.384847 9.59278 0.729248L16.5349 7.84809C16.8705 8.1925 16.8705 8.7494 16.5349 9.09014L9.59278 16.2126C9.2571 16.557 8.71431 16.557 8.3822 16.2126L7.58943 15.3993C7.25019 15.0512 7.25733 14.4833 7.60372 14.1426L11.9068 9.93649H1.64367C1.16872 9.93649 0.786621 9.54445 0.786621 9.05716V7.88473C0.786621 7.39744 1.16872 7.00541 1.64367 7.00541H11.9068L7.60372 2.79932C7.25376 2.45858 7.24661 1.89069 7.58943 1.54262Z"
+										fill="#2563EB" />
 								</svg>
 							</a>
 						</div>
 					</div>
-					<!-- News Item 2 -->
-					<div class="flex flex-col sm:flex-row gap-4 w-full group hover:cursor-pointer">
+					<div class="flex flex-col sm:flex-row gap-4 group hover:cursor-pointer w-full">
 						<div
-							class="w-full sm:max-w-[326px] sm:min-w-[200px] md:min-w-[250px] lg:min-w-[326px] h-[190px] object-cover rounded-lg object-center overflow-hidden">
+							class="w-full h-[300px] sm:h-[400px] md:w-[326px] md:h-[186px] object-cover rounded-lg object-center overflow-hidden">
 							<img src="./public/images/villa-img.jpg" alt="Sustainable Homes"
 								class="w-full h-full object-cover rounded-lg object-center group-hover:scale-110 transition-all duration-300">
 						</div>
-						<div class="flex flex-col w-full justify-between py-2 sm:py-4">
-							<h3 class="font-bold text-base sm:text-lg line-clamp-2">Sustainable Homes Sustainable Homes
+						<div class="flex flex-col w-full md:w-[calc(100%-326px)] justify-between pt-2 sm:pt-4">
+							<h3 class="font-bold text-lg md:text-xl line-clamp-2">Sustainable Homes Sustainable Homes
 								Sustainable
-								Homes</h3>
-							<div class="text-gray-600 text-xs sm:text-sm my-2 line-clamp-2 sm:line-clamp-3">The rise of
+								Homes Homes Homes</h3>
+							<div class="text-gray-600 text-base my-2 line-clamp-3">The rise of
 								eco-friendly
 								luxury properties. The rise of
+								eco-friendly luxury properties. The rise of eco-friendly luxury properties. The rise of
 								eco-friendly luxury properties. The rise of eco-friendly luxury properties.</div>
-							<a href="#" class="text-blue-600 flex items-center text-xs sm:text-sm group gap-1">
+							<a href="#" class="text-blue-600 flex items-center text-base group gap-2">
 								<span class="border-b border-blue-600">Xem tiếp</span>
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" fill="none"
-									viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+								<svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									class="group-hover:translate-x-1 transition-transform">
+									<path
+										d="M7.58943 1.54262L8.3822 0.729248C8.71788 0.384847 9.26068 0.384847 9.59278 0.729248L16.5349 7.84809C16.8705 8.1925 16.8705 8.7494 16.5349 9.09014L9.59278 16.2126C9.2571 16.557 8.71431 16.557 8.3822 16.2126L7.58943 15.3993C7.25019 15.0512 7.25733 14.4833 7.60372 14.1426L11.9068 9.93649H1.64367C1.16872 9.93649 0.786621 9.54445 0.786621 9.05716V7.88473C0.786621 7.39744 1.16872 7.00541 1.64367 7.00541H11.9068L7.60372 2.79932C7.25376 2.45858 7.24661 1.89069 7.58943 1.54262Z"
+										fill="#2563EB" />
 								</svg>
 							</a>
 						</div>
 					</div>
-					<!-- News Item 3 -->
-					<div class="flex flex-col sm:flex-row gap-4 w-full group hover:cursor-pointer">
+					<div class="flex flex-col sm:flex-row gap-4 group hover:cursor-pointer w-full">
 						<div
-							class="w-full sm:max-w-[326px] sm:min-w-[200px] md:min-w-[250px] lg:min-w-[326px] h-[190px] object-cover rounded-lg object-center overflow-hidden">
+							class="w-full h-[300px] sm:h-[400px] md:w-[326px] md:h-[186px] object-cover rounded-lg object-center overflow-hidden">
 							<img src="./public/images/villa-img.jpg" alt="Sustainable Homes"
 								class="w-full h-full object-cover rounded-lg object-center group-hover:scale-110 transition-all duration-300">
 						</div>
-						<div class="flex flex-col w-full justify-between py-2 sm:py-4">
-							<h3 class="font-bold text-base sm:text-lg line-clamp-2">Sustainable Homes Sustainable Homes
+						<div class="flex flex-col w-full md:w-[calc(100%-326px)] justify-between pt-2 sm:pt-4">
+							<h3 class="font-bold text-lg md:text-xl line-clamp-2">Sustainable Homes Sustainable Homes
 								Sustainable
-								Homes</h3>
-							<div class="text-gray-600 text-xs sm:text-sm my-2 line-clamp-2 sm:line-clamp-3">The rise of
+								Homes Homes Homes</h3>
+							<div class="text-gray-600 text-base my-2 line-clamp-3">The rise of
 								eco-friendly
 								luxury properties. The rise of
+								eco-friendly luxury properties. The rise of eco-friendly luxury properties. The rise of
 								eco-friendly luxury properties. The rise of eco-friendly luxury properties.</div>
-							<a href="#" class="text-blue-600 flex items-center text-xs sm:text-sm group gap-1">
+							<a href="#" class="text-blue-600 flex items-center text-base group gap-2">
 								<span class="border-b border-blue-600">Xem tiếp</span>
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" fill="none"
-									viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+								<svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									class="group-hover:translate-x-1 transition-transform">
+									<path
+										d="M7.58943 1.54262L8.3822 0.729248C8.71788 0.384847 9.26068 0.384847 9.59278 0.729248L16.5349 7.84809C16.8705 8.1925 16.8705 8.7494 16.5349 9.09014L9.59278 16.2126C9.2571 16.557 8.71431 16.557 8.3822 16.2126L7.58943 15.3993C7.25019 15.0512 7.25733 14.4833 7.60372 14.1426L11.9068 9.93649H1.64367C1.16872 9.93649 0.786621 9.54445 0.786621 9.05716V7.88473C0.786621 7.39744 1.16872 7.00541 1.64367 7.00541H11.9068L7.60372 2.79932C7.25376 2.45858 7.24661 1.89069 7.58943 1.54262Z"
+										fill="#2563EB" />
 								</svg>
 							</a>
 						</div>
@@ -345,21 +355,24 @@
 						<svg width="24" height="24" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path
 								d="M8.57324 29.8042V5.80424C8.57324 5.097 8.85419 4.41872 9.35429 3.91862C9.85439 3.41852 10.5327 3.13757 11.2399 3.13757H21.9066C22.6138 3.13757 23.2921 3.41852 23.7922 3.91862C24.2923 4.41872 24.5732 5.097 24.5732 5.80424V29.8042H8.57324Z"
-								stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+								stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+								stroke-linejoin="round" />
 							<path
 								d="M8.57323 16.4709H5.90657C5.19932 16.4709 4.52104 16.7519 4.02095 17.252C3.52085 17.7521 3.2399 18.4304 3.2399 19.1376V27.1376C3.2399 27.8449 3.52085 28.5231 4.02095 29.0232C4.52104 29.5233 5.19932 29.8043 5.90657 29.8043H8.57323"
-								stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+								stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+								stroke-linejoin="round" />
 							<path
 								d="M24.5732 12.4709H27.2399C27.9472 12.4709 28.6254 12.7519 29.1255 13.252C29.6256 13.7521 29.9066 14.4304 29.9066 15.1376V27.1376C29.9066 27.8449 29.6256 28.5231 29.1255 29.0232C28.6254 29.5233 27.9472 29.8043 27.2399 29.8043H24.5732"
-								stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-							<path d="M13.9066 8.47095H19.2399" stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+								stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
 								stroke-linejoin="round" />
-							<path d="M13.9066 13.8043H19.2399" stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
-								stroke-linejoin="round" />
-							<path d="M13.9066 19.1376H19.2399" stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
-								stroke-linejoin="round" />
-							<path d="M13.9066 24.4709H19.2399" stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
-								stroke-linejoin="round" />
+							<path d="M13.9066 8.47095H19.2399" stroke="#2563EB" stroke-width="2.66667"
+								stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M13.9066 13.8043H19.2399" stroke="#2563EB" stroke-width="2.66667"
+								stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M13.9066 19.1376H19.2399" stroke="#2563EB" stroke-width="2.66667"
+								stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M13.9066 24.4709H19.2399" stroke="#2563EB" stroke-width="2.66667"
+								stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
 						<span class="text-xl font-bold">Luxury Estates</span>
 					</div>
