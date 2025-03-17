@@ -41,7 +41,7 @@
             </div>
 
             <!-- Mobile menu button -->
-            <button class="md:hidden focus:outline-none" id="menuToggle">
+            <button class="md:hidden focus:outline-none" id="menuToggle" aria-label="Toggle menu">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -64,8 +64,8 @@
 
         <!-- Mobile Navigation -->
         <div id="mobileMenu"
-            class="fixed top-[100%] left-0 right-0 h-screen overflow-auto bg-black/95 transition-all duration-500 ease-in-out z-10 transform touch-none select-none">
-            <button class="absolute top-4 right-4 text-white text-6xl">×</button>
+            class="fixed top-[100%] left-0 right-0 h-screen overflow-auto bg-black/95 transition-all duration-500 ease-in-out z-20 transform touch-none select-none">
+            <button class="absolute top-4 right-4 text-white text-6xl" aria-label="Close menu">×</button>
             <ul class="flex flex-col items-center justify-center h-full py-4 space-y-8">
                 <li><a href="#" class="text-white hover:text-blue-600 transition-colors text-xl">Home</a></li>
                 <li><a href="#" class="text-white hover:text-blue-600 transition-colors text-xl">Projects</a></li>
@@ -85,15 +85,25 @@
         document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.getElementById('menuToggle');
             const mobileMenu = document.getElementById('mobileMenu');
+            const closeButton = mobileMenu.querySelector('button');
             let menuOpen = false;
 
             menuToggle.addEventListener('click', function () {
                 menuOpen = !menuOpen;
                 if (menuOpen) {
                     mobileMenu.style.transform = 'translateY(-100%)';
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
                 } else {
                     mobileMenu.style.transform = 'translateY(0)';
+                    document.body.style.overflow = ''; // Restore scrolling
                 }
+            });
+
+            // Close menu when clicking on close button
+            closeButton.addEventListener('click', function () {
+                menuOpen = false;
+                mobileMenu.style.transform = 'translateY(0)';
+                document.body.style.overflow = ''; // Restore scrolling
             });
 
             // Close menu when clicking on a link
@@ -102,7 +112,17 @@
                 link.addEventListener('click', function () {
                     menuOpen = false;
                     mobileMenu.style.transform = 'translateY(0)';
+                    document.body.style.overflow = ''; // Restore scrolling
                 });
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && menuOpen) {
+                    menuOpen = false;
+                    mobileMenu.style.transform = 'translateY(0)';
+                    document.body.style.overflow = ''; // Restore scrolling
+                }
             });
         });
     </script>
@@ -251,7 +271,7 @@
             </div>
         </section>
 
-        <section class="bg-white sticky top-0 z-10 shadow-md w-full overflow-x-auto">
+        <section class="bg-white sticky top-0 z-3 shadow-md w-full overflow-x-auto">
             <div class="container mx-auto px-4">
                 <div
                     class="flex max-sm:pr-4 py-2 justify-center xl:justify-start items-center gap-6 sm:gap-10 flex-row overflow-x-auto scrollbar-hide w-full min-w-max">
@@ -740,7 +760,7 @@
     <!-- Footer Section -->
     <footer class="bg-[#111827] text-white py-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center gap-2 mb-6">
@@ -778,6 +798,7 @@
                             </svg>
                             <span class="text-gray-300">+1 (555) 123-4567</span>
                         </div>
+
                         <div class="flex items-start gap-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-0.5 text-blue-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -786,6 +807,7 @@
                             </svg>
                             <span class="text-gray-300">contact@luxuryestates.com</span>
                         </div>
+
                         <div class="flex items-start gap-3">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-0.5 text-blue-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -803,8 +825,8 @@
                 <!-- Navigation Links -->
                 <div>
                     <h3 class="text-xl font-bold mb-6">Lối tắt</h3>
-                    <ul class="space-y-4">
-                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
                         <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Projects</a></li>
                         <li><a href="#" class="text-gray-300 hover:text-white transition-colors">News</a></li>
                         <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
