@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winton Homes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="font-sans">
+    <!-- Navigation Bar -->
+    <header
+        class="bg-gradient-to-b from-black via-black/70 to-transparent text-white p-3 flex justify-between items-center absolute w-full z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M8.57324 29.8042V5.80424C8.57324 5.097 8.85419 4.41872 9.35429 3.91862C9.85439 3.41852 10.5327 3.13757 11.2399 3.13757H21.9066C22.6138 3.13757 23.2921 3.41852 23.7922 3.91862C24.2923 4.41872 24.5732 5.097 24.5732 5.80424V29.8042H8.57324Z"
+                        stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M8.57323 16.4709H5.90657C5.19932 16.4709 4.52104 16.7519 4.02095 17.252C3.52085 17.7521 3.2399 18.4304 3.2399 19.1376V27.1376C3.2399 27.8449 3.52085 28.5231 4.02095 29.0232C4.52104 29.5233 5.19932 29.8043 5.90657 29.8043H8.57323"
+                        stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                        d="M24.5732 12.4709H27.2399C27.9472 12.4709 28.6254 12.7519 29.1255 13.252C29.6256 13.7521 29.9066 14.4304 29.9066 15.1376V27.1376C29.9066 27.8449 29.6256 28.5231 29.1255 29.0232C28.6254 29.5233 27.9472 29.8043 27.2399 29.8043H24.5732"
+                        stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M13.9066 8.47095H19.2399" stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M13.9066 13.8043H19.2399" stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M13.9066 19.1376H19.2399" stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M13.9066 24.4709H19.2399" stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <span class="text-xl font-bold text-white">Luxury Estates</span>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button class="md:hidden focus:outline-none" id="menuToggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex">
+                <ul class="flex gap-8 items-center">
+                    <li><a href="#" class="text-white hover:text-blue-600 transition-colors text-md">Home</a></li>
+                    <li><a href="#" class="text-white hover:text-blue-600 transition-colors text-md">Projects</a></li>
+                    <li><a href="#" class="text-white hover:text-blue-600 transition-colors text-md">News</a></li>
+                    <button
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition-colors hover:cursor-pointer">
+                        Contact Now
+                    </button>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu"
+            class="fixed top-[100%] left-0 right-0 h-screen overflow-auto bg-black/95 transition-all duration-500 ease-in-out z-10 transform touch-none select-none">
+            <button class="absolute top-4 right-4 text-white text-6xl">×</button>
+            <ul class="flex flex-col items-center justify-center h-full py-4 space-y-8">
+                <li><a href="#" class="text-white hover:text-blue-600 transition-colors text-xl">Home</a></li>
+                <li><a href="#" class="text-white hover:text-blue-600 transition-colors text-xl">Projects</a></li>
+                <li><a href="#" class="text-white hover:text-blue-600 transition-colors text-xl">News</a></li>
+                <li>
+                    <button onclick="window.location.href='contact.html'"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition-colors text-lg">
+                        Contact Now
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            let menuOpen = false;
+
+            menuToggle.addEventListener('click', function () {
+                menuOpen = !menuOpen;
+                if (menuOpen) {
+                    mobileMenu.style.transform = 'translateY(-100%)';
+                } else {
+                    mobileMenu.style.transform = 'translateY(0)';
+                }
+            });
+
+            // Close menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a, button');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    menuOpen = false;
+                    mobileMenu.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+
+    <!-- Main Content -->
+    <main id="fullpage" class="pt-20">
+        <!-- Hero Section -->
+        <section class="h-full bg-gray-50 overflow-hidden">
+            <div class="px-4">
+                <!-- Swiper Container -->
+                <div
+                    class="swiper projectsSwiper w-full h-[300px] sm:h-[500px] lg:h-[500px] xl:h-[600px] overflow-visible">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide group hover:cursor-pointer">
+                            <div class="h-full w-full overflow-hidden rounded-lg ">
+                                <img src="../public/images/villa-img.jpg" alt="Luxury Villa Complex"
+                                    class="w-full h-full object-cover object-center group-hover:scale-110 transition-all duration-300">
+                                <div
+                                    class="absolute flex flex-col lg:flex-row gap-4 items-center bottom-0 left-0 w-full pl-4 sm:pl-8 lg:pl-12 pr-4 sm:pr-12 lg:pr-20 pb-6 sm:pb-8 lg:pb-12 pt-16 bg-gradient-to-t from-black via-black to-transparent rounded-lg overflow-hidden">
+                                    <div class="flex flex-col w-full">
+                                        <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2">Luxury
+                                            Villa Complex</h3>
+                                        <div class="flex flex-row items-center text-white/80 mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 mr-2"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                            <div>Beverly Hills</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide group hover:cursor-pointer">
+                            <div class="h-full w-full overflow-hidden rounded-lg ">
+                                <img src="../public/images/villa-img.jpg" alt="Luxury Villa Complex"
+                                    class="w-full h-full object-cover object-center group-hover:scale-110 transition-all duration-300">
+                                <div
+                                    class="absolute flex flex-col lg:flex-row gap-4 items-center bottom-0 left-0 w-full pl-4 sm:pl-8 lg:pl-12 pr-4 sm:pr-12 lg:pr-20 pb-6 sm:pb-8 lg:pb-12 pt-16 bg-gradient-to-t from-black via-black to-transparent rounded-lg overflow-hidden">
+                                    <div class="flex flex-col w-full">
+                                        <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2">Luxury
+                                            Villa Complex</h3>
+                                        <div class="flex flex-row items-center text-white/80 mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 mr-2"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                            <div>Beverly Hills</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide group hover:cursor-pointer">
+                            <div class="h-full w-full overflow-hidden rounded-lg ">
+                                <img src="../public/images/villa-img.jpg" alt="Luxury Villa Complex"
+                                    class="w-full h-full object-cover object-center group-hover:scale-110 transition-all duration-300">
+                                <div
+                                    class="absolute flex flex-col lg:flex-row gap-4 items-center bottom-0 left-0 w-full pl-4 sm:pl-8 lg:pl-12 pr-4 sm:pr-12 lg:pr-20 pb-6 sm:pb-8 lg:pb-12 pt-16 bg-gradient-to-t from-black via-black to-transparent rounded-lg overflow-hidden">
+                                    <div class="flex flex-col w-full">
+                                        <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2">Luxury
+                                            Villa Complex</h3>
+                                        <div class="flex flex-row items-center text-white/80 mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 mr-2"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                            <div>Beverly Hills</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide group hover:cursor-pointer">
+                            <div class="h-full w-full overflow-hidden rounded-lg ">
+                                <img src="../public/images/villa-img.jpg" alt="Luxury Villa Complex"
+                                    class="w-full h-full object-cover object-center group-hover:scale-110 transition-all duration-300">
+                                <div
+                                    class="absolute flex flex-col lg:flex-row gap-4 items-center bottom-0 left-0 w-full pl-4 sm:pl-8 lg:pl-12 pr-4 sm:pr-12 lg:pr-20 pb-6 sm:pb-8 lg:pb-12 pt-16 bg-gradient-to-t from-black via-black to-transparent rounded-lg overflow-hidden">
+                                    <div class="flex flex-col w-full">
+                                        <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2">Luxury
+                                            Villa Complex</h3>
+                                        <div class="flex flex-row items-center text-white/80 mb-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 mr-2"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                            <div>Beverly Hills</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Initialize Swiper -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const swiper = new Swiper('.projectsSwiper', {
+                            slidesPerView: 1.2,
+                            centeredSlides: true,
+                            spaceBetween: 20,
+                            loop: true,
+                            pagination: {
+                                el: '.swiper-pagination',
+                                clickable: true,
+                            },
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            },
+                            breakpoints: {
+                                // when window width is >= 640px
+                                640: {
+                                    slidesPerView: 1.2,
+                                    spaceBetween: 20
+                                },
+                                // when window width is >= 768px
+                                768: {
+                                    slidesPerView: 1.3,
+                                    spaceBetween: 30
+                                },
+                                // when window width is >= 1024px
+                                1024: {
+                                    slidesPerView: 1.5,
+                                    spaceBetween: 40
+                                }
+                            }
+                        });
+                    });
+                </script>
+            </div>
+        </section>
+
+        <section class="bg-white sticky top-0 z-10 shadow-md w-full overflow-x-auto">
+            <div class="container mx-auto px-4">
+                <div
+                    class="flex max-sm:pr-4 py-2 justify-center xl:justify-start items-center gap-6 sm:gap-10 flex-row overflow-x-auto scrollbar-hide w-full min-w-max">
+                    <div data-section="overview"
+                        class="nav-item hover:text-blue-600 font-medium sm:px-4 py-2 transition-colors flex items-center gap-1 sm:gap-2 text-sm sm:text-base lg:text-lg cursor-pointer">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="sm:w-5 sm:h-5">
+                            <path
+                                d="M2.5 10C2.5 10 5.83333 3.33325 10 3.33325C14.1667 3.33325 17.5 10 17.5 10C17.5 10 14.1667 16.6666 10 16.6666C5.83333 16.6666 2.5 10 2.5 10Z"
+                                stroke="#60A5FA" stroke-width="1.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+                                stroke="#60A5FA" stroke-width="1.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <div class="nav-title whitespace-normal">Tổng quan dự án</div>
+                    </div>
+                    <div class="w-[1px] border h-[30px] border-gray-200 hidden sm:block"></div>
+                    <div data-section="location"
+                        class="nav-item hover:text-blue-600 font-medium sm:px-4 py-2 transition-colors flex items-center gap-1 sm:gap-2 text-sm sm:text-base lg:text-lg cursor-pointer">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="sm:w-5 sm:h-5">
+                            <path
+                                d="M16.6666 8.33341C16.6666 13.3334 9.99992 18.3334 9.99992 18.3334C9.99992 18.3334 3.33325 13.3334 3.33325 8.33341C3.33325 6.5653 4.03563 4.86961 5.28587 3.61937C6.53612 2.36913 8.23181 1.66675 9.99992 1.66675C11.768 1.66675 13.4637 2.36913 14.714 3.61937C15.9642 4.86961 16.6666 6.5653 16.6666 8.33341Z"
+                                stroke="#60A5FA" stroke-width="1.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M10 10.8333C11.3807 10.8333 12.5 9.71396 12.5 8.33325C12.5 6.95254 11.3807 5.83325 10 5.83325C8.61929 5.83325 7.5 6.95254 7.5 8.33325C7.5 9.71396 8.61929 10.8333 10 10.8333Z"
+                                stroke="#60A5FA" stroke-width="1.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <div class="nav-title whitespace-normal">Vị trí</div>
+                    </div>
+                    <div class="w-[1px] border h-[30px] border-gray-200 hidden sm:block"></div>
+                    <div data-section="technical-specifications"
+                        class="nav-item hover:text-blue-600 font-medium sm:px-4 py-2 transition-colors flex items-center gap-1 sm:gap-2 text-sm sm:text-base lg:text-lg cursor-pointer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="sm:w-6 sm:h-6">
+                            <path d="M3 21V3H21V21H3Z" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M7 7H17V17H7V7Z" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M12 17V21" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M17 12H21" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <div class="nav-title whitespace-normal">Thông số</div>
+                    </div>
+
+                    <div class="w-[1px] border h-[30px] border-gray-200 hidden sm:block"></div>
+                    <div data-section="area"
+                        class="nav-item hover:text-blue-600 font-medium sm:px-4 py-2 transition-colors flex items-center gap-1 sm:gap-2 text-sm sm:text-base lg:text-lg cursor-pointer">
+                        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="sm:w-5 sm:h-5">
+                            <path d="M1.66675 5.83325H18.3334" stroke="#60A5FA" stroke-width="1.66667"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M8.33341 1.66675V5.83341" stroke="#60A5FA" stroke-width="1.66667"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M11.6666 1.66675V5.83341" stroke="#60A5FA" stroke-width="1.66667"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M3.33341 5.83325H16.6667V16.6666C16.6667 17.5871 15.9206 18.3333 15.0001 18.3333H5.00008C4.07961 18.3333 3.33341 17.5871 3.33341 16.6666V5.83325Z"
+                                stroke="#60A5FA" stroke-width="1.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M7.5 10.8333H12.5" stroke="#60A5FA" stroke-width="1.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M7.5 14.1667H12.5" stroke="#60A5FA" stroke-width="1.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <div class="nav-title whitespace-normal">Diện tích nổi bật</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tổng quan dự án -->
+        <section id="overview" class="py-16 bg-gradient-to-b from-blue-50 to-white">
+            <div class="container mx-auto px-6 lg:px-16">
+                <div class="text-2xl lg:text-4xl font-extrabold text-gray-900 text-center pb-12">
+                    Tổng quan dự án <span class="text-blue-600">The Maison</span>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                    <!-- Item: Vị trí -->
+                    <div
+                        class="flex items-start bg-white shadow-md rounded-2xl p-6 transition-transform duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div class="w-full">
+                            <div class="flex items-center gap-3 text-xl lg:text-2xl font-semibold text-gray-800">
+                                <svg class="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <span>Vị trí</span>
+                            </div>
+                            <div class="w-full h-[2px] bg-gray-200 my-3"></div>
+                            <p class="text-lg text-gray-600">Đường Phan Bội Châu, Phú Thọ, TP. Thủ Dầu Một, Bình Dương
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item: Tổng diện tích đất -->
+                    <div
+                        class="flex items-start bg-white shadow-md rounded-2xl p-6 transition-transform duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div class="w-full">
+                            <div class="flex items-center gap-3 text-xl lg:text-2xl font-semibold text-gray-800">
+                                <svg class="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4h16v16H4V4z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 12h16M12 4v16"></path>
+                                </svg>
+                                <span>Tổng diện tích đất</span>
+                            </div>
+                            <div class="w-full h-[2px] bg-gray-200 my-3"></div>
+                            <p class="text-lg text-gray-600">5.607,4m²</p>
+                        </div>
+                    </div>
+
+                    <!-- Item: Mật độ xây dựng -->
+                    <div
+                        class="flex items-start bg-white shadow-md rounded-2xl p-6 transition-transform duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div class="w-full">
+                            <div class="flex items-center gap-3 text-xl lg:text-2xl font-semibold text-gray-800">
+                                <svg width="33" height="33" viewBox="0 0 33 33" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 28V14C6 13 6.5 12 7 11L13 5C13.5 4.5 14 4 15 4H25C26.5 4 28 5.5 28 7V28"
+                                        stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M13 28V19C13 18 14 17 15 17H21C22 17 23 18 23 19V28" stroke="#2563EB"
+                                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M3 28H30" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                                <span>Mật độ xây dựng</span>
+                            </div>
+                            <div class="w-full h-[2px] bg-gray-200 my-3"></div>
+                            <p class="text-lg text-gray-600">44,44%</p>
+                        </div>
+                    </div>
+
+                    <!-- Item: Diện tích căn hộ -->
+                    <div
+                        class="flex items-start bg-white shadow-md rounded-2xl p-6 transition-transform duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div class="w-full">
+                            <div class="flex items-center gap-3 text-xl lg:text-2xl font-semibold text-gray-800">
+                                <svg class="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h18v18H3V3z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 3v18M15 3v18M3 9h18M3 15h18"></path>
+                                </svg>
+                                <span>Diện tích căn hộ</span>
+                            </div>
+                            <div class="w-full h-[2px] bg-gray-200 my-3"></div>
+                            <p class="text-lg text-gray-600">44.32m² - 82.61m²</p>
+                        </div>
+                    </div>
+
+                    <!-- Item: Tổng số căn hộ -->
+                    <div
+                        class="flex items-start bg-white shadow-md rounded-2xl p-6 transition-transform duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div class="w-full">
+                            <div class="flex items-center gap-3 text-xl lg:text-2xl font-semibold text-gray-800">
+                                <svg width="33" height="33" viewBox="0 0 33 33" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M8.78662 29.8044V5.80436C8.78662 5.09712 9.06757 4.41884 9.56767 3.91874C10.0678 3.41865 10.746 3.1377 11.4533 3.1377H22.12C22.8272 3.1377 23.5055 3.41865 24.0056 3.91874C24.5057 4.41884 24.7866 5.09712 24.7866 5.80436V29.8044H8.78662Z"
+                                        stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M8.78664 16.4709H6.11997C5.41273 16.4709 4.73445 16.7519 4.23436 17.252C3.73426 17.7521 3.45331 18.4304 3.45331 19.1376V27.1376C3.45331 27.8449 3.73426 28.5231 4.23436 29.0232C4.73445 29.5233 5.41273 29.8043 6.11997 29.8043H8.78664"
+                                        stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M24.7866 12.4709H27.4533C28.1605 12.4709 28.8388 12.7519 29.3389 13.252C29.839 13.7521 30.12 14.4304 30.12 15.1376V27.1376C30.12 27.8449 29.839 28.5231 29.3389 29.0232C28.8388 29.5233 28.1605 29.8043 27.4533 29.8043H24.7866"
+                                        stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M14.1199 8.47095H19.4533" stroke="#2563EB" stroke-width="2.66667"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M14.1199 13.8042H19.4533" stroke="#2563EB" stroke-width="2.66667"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M14.1199 19.1377H19.4533" stroke="#2563EB" stroke-width="2.66667"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M14.1199 24.4709H19.4533" stroke="#2563EB" stroke-width="2.66667"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Tổng số căn hộ</span>
+                            </div>
+                            <div class="w-full h-[2px] bg-gray-200 my-3"></div>
+                            <p class="text-lg text-gray-600">632 căn hộ từ 1PN+ - 3PN</p>
+                        </div>
+                    </div>
+
+                    <!-- Item: Các loại căn hộ -->
+                    <div
+                        class="flex items-start bg-white shadow-md rounded-2xl p-6 transition-transform duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div class="w-full">
+                            <div class="flex items-center gap-3 text-xl lg:text-2xl font-semibold text-gray-800">
+                                <svg width="33" height="33" viewBox="0 0 33 33" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M4.78662 12.471L16.7866 3.1377L28.7866 12.471V27.1377C28.7866 27.8449 28.5057 28.5232 28.0056 29.0233C27.5055 29.5234 26.8272 29.8044 26.12 29.8044H7.45329C6.74604 29.8044 6.06777 29.5234 5.56767 29.0233C5.06757 28.5232 4.78662 27.8449 4.78662 27.1377V12.471Z"
+                                        stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M12.7866 29.8043V16.4709H20.7866V29.8043" stroke="#2563EB"
+                                        stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <span>Các loại căn hộ</span>
+                            </div>
+                            <div class="w-full h-[2px] bg-gray-200 my-3"></div>
+                            <p class="text-lg text-gray-600">1PN+, 2PN, 3PN, Sân vườn, Penthouse, Shophouse</p>
+                        </div>
+                    </div>
+
+                    <!-- Item: Mức giá -->
+                    <div
+                        class="flex items-start bg-white shadow-md rounded-2xl p-6 transition-transform duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <div class="w-full">
+                            <div class="flex items-center gap-3 text-xl lg:text-2xl font-semibold text-gray-800">
+                                <svg width="33" height="33" viewBox="0 0 33 33" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M5 14L14 5C14.5 4.5 15 4 16 4H24C25.5 4 27 5.5 27 7V15C27 16 26.5 16.5 26 17L17 26C15.5 27.5 13.5 27.5 12 26L5 19C3.5 17.5 3.5 15.5 5 14Z"
+                                        stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M21 10H21.01" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+                                <span>Mức giá</span>
+                            </div>
+                            <div class="w-full h-[2px] bg-gray-200 my-3"></div>
+                            <p class="text-lg text-gray-600">30tr/m²</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vị trí dự án -->
+        <section id="location" class="bg-gray-50 py-16">
+            <div class="container mx-auto px-4">
+                <div class="text-2xl lg:text-4xl font-extrabold text-gray-900 text-center pb-12">
+                    Vị trí <span class="text-blue-600">The Maison</span>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="rounded-xl overflow-hidden shadow-2xl">
+                        <img src="../public/images/map.png" alt="Vị trí dự án" class="w-full h-auto">
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-semibold text-blue-600">Kết nối thuận tiện</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            The Maison sở hữu vị trí đắc địa tại trung tâm thành phố Thủ Dầu Một, kết nối thuận tiện với
+                            các tiện ích xung quanh và các tuyến đường huyết mạch của khu vực.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Cách trung tâm hành chính tỉnh Bình Dương chỉ 5 phút di chuyển</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Liền kề Đại học Quốc tế Miền Đông, THPT chuyên Hùng Vương</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Kết nối nhanh chóng với TP.HCM qua Quốc lộ 13 và cao tốc Mỹ Phước - Tân Vạn</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-blue-600 mt-0.5 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Gần các khu công nghiệp lớn: VSIP, Mỹ Phước, Sóng Thần</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thông số kỹ thuật -->
+        <section id="technical-specifications" class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="text-2xl lg:text-4xl font-extrabold text-gray-900 text-center pb-12">
+                    Thông số kỹ thuật
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4 text-blue-600">Kiến trúc</h3>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">Số tầng:</span>
+                                    <span class="font-semibold text-end">25 tầng</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">Số block:</span>
+                                    <span class="font-semibold text-end">2 block</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">Mật độ xây dựng:</span>
+                                    <span class="font-semibold text-end">44,44%</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">Chiều cao tối đa:</span>
+                                    <span class="font-semibold text-end">85m</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4 text-blue-600">Nội thất</h3>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">Trần:</span>
+                                    <span class="font-semibold text-end">Trần thạch cao</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">Sàn:</span>
+                                    <span class="font-semibold text-end">Gạch granite cao cấp</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">Cửa chính:</span>
+                                    <span class="font-semibold text-end">Cửa gỗ an toàn</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">Thiết bị vệ sinh:</span>
+                                    <span class="font-semibold text-end">Thương hiệu cao cấp</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-4 text-blue-600">Hệ thống kỹ thuật</h3>
+                            <ul class="space-y-3">
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">Thang máy:</span>
+                                    <span class="font-semibold text-end">Mitsubishi (6 thang/block)</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">Hệ thống PCCC:</span>
+                                    <span class="font-semibold text-end">Tiêu chuẩn quốc tế</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">Điện dự phòng:</span>
+                                    <span class="font-semibold text-end">100% công suất</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span class="text-gray-600 text-start">An ninh:</span>
+                                    <span class="font-semibold text-end">24/7, camera AI</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diện tích nổi bật -->
+        <section id="area" class="bg-gray-100 py-20">
+            <div class="container mx-auto px-6">
+                <!-- Section Title -->
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl sm:text-4xl font-extrabold">
+                        Diện tích nổi bật
+                    </h2>
+                    <p class="text-gray-600 mt-3 text-lg">Khám phá các căn hộ với thiết kế tinh tế và không gian sống lý
+                        tưởng.</p>
+                </div>
+
+                <!-- Grid Layout -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Card -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden group transition-all duration-300">
+                        <div class="relative h-[200px] xl:h-[300px] overflow-hidden">
+                            <img src="../public/images/villa-img.jpg" alt="Căn hộ 1 phòng ngủ"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 backdrop-blur-md">
+                                <h3 class="text-white text-lg font-bold">Căn hộ 1 phòng ngủ +</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between mb-3">
+                                <span class="text-gray-500">Diện tích:</span>
+                                <span class="font-semibold text-gray-900">44.32m² - 49.75m²</span>
+                            </div>
+                            <div class="flex justify-between mb-5">
+                                <span class="text-gray-500">Số phòng ngủ:</span>
+                                <span class="font-semibold text-gray-900">1 phòng ngủ + 1 phòng đa năng</span>
+                            </div>
+                            <a href="#"
+                                class="block text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                                Xem chi tiết
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden group transition-all duration-300">
+                        <div class="relative h-[200px] xl:h-[300px] overflow-hidden">
+                            <img src="../public/images/villa-img.jpg" alt="Căn hộ 2 phòng ngủ"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 backdrop-blur-md">
+                                <h3 class="text-white text-lg font-bold">Căn hộ 2 phòng ngủ</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between mb-3">
+                                <span class="text-gray-500">Diện tích:</span>
+                                <span class="font-semibold text-gray-900">60.45m² - 68.22m²</span>
+                            </div>
+                            <div class="flex justify-between mb-5">
+                                <span class="text-gray-500">Số phòng ngủ:</span>
+                                <span class="font-semibold text-gray-900">2 phòng ngủ</span>
+                            </div>
+                            <a href="#"
+                                class="block text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                                Xem chi tiết
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden group transition-all duration-300">
+                        <div class="relative h-[200px] xl:h-[300px] overflow-hidden">
+                            <img src="../public/images/villa-img.jpg" alt="Căn hộ 3 phòng ngủ"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 backdrop-blur-md">
+                                <h3 class="text-white text-lg font-bold">Căn hộ 3 phòng ngủ</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between mb-3">
+                                <span class="text-gray-500">Diện tích:</span>
+                                <span class="font-semibold text-gray-900">75.38m² - 82.61m²</span>
+                            </div>
+                            <div class="flex justify-between mb-5">
+                                <span class="text-gray-500">Số phòng ngủ:</span>
+                                <span class="font-semibold text-gray-900">3 phòng ngủ</span>
+                            </div>
+                            <a href="#"
+                                class="block text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                                Xem chi tiết
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Add Fullpage.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+
+
+    <!-- Footer Section -->
+    <footer class="bg-[#111827] text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <svg width="24" height="24" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8.57324 29.8042V5.80424C8.57324 5.097 8.85419 4.41872 9.35429 3.91862C9.85439 3.41852 10.5327 3.13757 11.2399 3.13757H21.9066C22.6138 3.13757 23.2921 3.41852 23.7922 3.91862C24.2923 4.41872 24.5732 5.097 24.5732 5.80424V29.8042H8.57324Z"
+                                stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M8.57323 16.4709H5.90657C5.19932 16.4709 4.52104 16.7519 4.02095 17.252C3.52085 17.7521 3.2399 18.4304 3.2399 19.1376V27.1376C3.2399 27.8449 3.52085 28.5231 4.02095 29.0232C4.52104 29.5233 5.19932 29.8043 5.90657 29.8043H8.57323"
+                                stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M24.5732 12.4709H27.2399C27.9472 12.4709 28.6254 12.7519 29.1255 13.252C29.6256 13.7521 29.9066 14.4304 29.9066 15.1376V27.1376C29.9066 27.8449 29.6256 28.5231 29.1255 29.0232C28.6254 29.5233 27.9472 29.8043 27.2399 29.8043H24.5732"
+                                stroke="#2563EB" stroke-width="2.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M13.9066 8.47095H19.2399" stroke="#2563EB" stroke-width="2.66667"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M13.9066 13.8043H19.2399" stroke="#2563EB" stroke-width="2.66667"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M13.9066 19.1376H19.2399" stroke="#2563EB" stroke-width="2.66667"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M13.9066 24.4709H19.2399" stroke="#2563EB" stroke-width="2.66667"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span class="text-xl font-bold">Luxury Estates</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-0.5 text-blue-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <span class="text-gray-300">+1 (555) 123-4567</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-0.5 text-blue-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <span class="text-gray-300">contact@luxuryestates.com</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mt-0.5 text-blue-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="text-gray-300">123 Luxury Lane, Beverly Hills, CA 90210</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex md:hidden border border-gray-800"></div>
+                <!-- Navigation Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Lối tắt</h3>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">News</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex md:hidden border border-gray-800"></div>
+                <!-- Contact Form -->
+                <div>
+                    <p class="text-gray-300 mb-6">
+                        Xin quý khách vui lòng để lại thông tin, chúng tôi sẽ cập nhật những thông tin về dự án/sản phẩm
+                        cũng như
+                        các chương trình ưu đãi, khuyến mại và tin tức mới nhất đến với Quý Khách.
+                    </p>
+
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Your name"
+                            class="w-full px-4 py-3 bg-[#1e293b] border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600">
+
+                        <input type="tel" placeholder="Your phone number"
+                            class="w-full px-4 py-3 bg-[#1e293b] border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600">
+
+                        <input type="email" placeholder="Your email address"
+                            class="w-full px-4 py-3 bg-[#1e293b] border border-gray-700 rounded-md text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600">
+
+                        <button type="submit"
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md transition-colors uppercase font-medium">
+                            Gửi thông tin
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="mt-16 pt-8 border-t border-gray-800 text-gray-500 text-sm">
+                <p>© 2024 Luxury Estates. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add this script after your existing scripts but before the closing body tag -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all the navigation items
+            const navItems = document.querySelectorAll('.scrollbar-hide > div');
+
+            // Add click event listeners to each nav item
+            navItems.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Get the text content and find corresponding section
+                    const sectionText = this.querySelector('.nav-title').textContent.toLowerCase();
+                    let sectionId;
+
+                    // Map navigation text to section IDs
+                    switch (sectionText) {
+                        case 'tổng quan dự án':
+                            sectionId = 'overview';
+                            break;
+                        case 'vị trí':
+                            sectionId = 'location';
+                            break;
+                        case 'thông số':
+                            sectionId = 'technical-specifications';
+                            break;
+                        case 'diện tích nổi bật':
+                            sectionId = 'area';
+                            break;
+                        default:
+                            return;
+                    }
+
+                    // Find the section and scroll to it
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                        // Add active state to clicked nav item
+                        navItems.forEach(nav => nav.classList.remove('text-blue-600'));
+                        this.classList.add('text-blue-600');
+
+                        // Scroll to section
+                        section.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Add scroll event listener to track current section and update nav
+        window.addEventListener('scroll', function () {
+            // Get all sections that have corresponding nav items
+            const sections = [
+                document.getElementById('overview'),
+                document.getElementById('location'),
+                document.getElementById('technical-specifications'),
+                document.getElementById('area')
+            ].filter(section => section !== null);
+
+            // Get all nav items
+            const navItems = document.querySelectorAll('.scrollbar-hide > div[data-section]');
+
+            // Find which section is currently in view
+            let currentSectionId = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                // Check if we've scrolled to this section (with some buffer for better UX)
+                if (window.scrollY >= sectionTop - 300 &&
+                    window.scrollY < sectionTop + sectionHeight - 300) {
+                    currentSectionId = section.id;
+                }
+            });
+
+            // Update active state in navigation
+            if (currentSectionId) {
+                navItems.forEach(item => {
+                    // Remove active class from all items
+                    item.classList.remove('text-blue-600');
+
+                    // Add active class to current section's nav item
+                    if (item.getAttribute('data-section') === currentSectionId) {
+                        item.classList.add('text-blue-600');
+                    }
+                });
+            }
+        });
+
+        // Add smooth scroll behavior to the entire page
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+</body>
+
+</html>
